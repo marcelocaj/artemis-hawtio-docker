@@ -24,7 +24,7 @@ RUN set -x && \
   rm -f apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz KEYS apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz.asc && \
   cd /opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}/web/ && \
   wget -q -O hawtio.war https://oss.sonatype.org/content/repositories/public/io/hawt/hawtio-default-offline/${HAWTIO_VERSION}/hawtio-default-offline-${HAWTIO_VERSION}.war && \
-  echo "${HAWTIO_SHA1} *hawtio.war" | sha1sum -c -
+  echo "${HAWTIO_SHA1} *hawtio.war" | sha1sum -c - && \
   apk del .deps
 
 # Use the local hawtio artemis plugin
