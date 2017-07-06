@@ -1,7 +1,7 @@
 #!/bin/sh
-echo "zz"
-echo $(ls /var/lib/artemis/etc)
 set -e
+
+. /checkDirs.sh
 
 # Log to tty to enable docker logs container-name
 sed -i "s/logger.handlers=.*/logger.handlers=CONSOLE/g" ../etc/logging.properties
@@ -38,7 +38,8 @@ else
 fi
 
 if [ "$1" = 'artemis-server' ]; then
-	set -- gosu artemis "./artemis" "run"
+   # For: $@ = su-exec artemis "./artemis" "run"
+   set -- su-exec artemis "${ARTEMIS_INSTANCE_DIR}/bin/artemis" "run"
 fi
 
 exec "$@"
