@@ -6,7 +6,7 @@ RUN addgroup -S artemis && adduser -S -G artemis artemis
 
 RUN apk add --no-cache libaio xmlstarlet jq su-exec
 
-ENV HAWTIO_SHA1 c0c92cad5bdcc9b768207c8b8a3cde62dbc7ab8c
+ENV HAWTIO_SHA1 59a5ec0d9c938bd706be42c879574b8105250d72
 
 # Download artemis and hawtio 
 ENV ACTIVEMQ_ARTEMIS_VERSION 2.3.0
