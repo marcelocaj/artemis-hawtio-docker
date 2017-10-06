@@ -27,7 +27,13 @@ HawtIO is a web dashboard for managing and monitoring JVM-based services such as
 ActiveMQ Artemis daemon can be run with the following command:
 
 ```console
-$ docker run -d marcelocaj/artemis-hawtio-docker
+$ docker run -d -p 8161:8161 -p 61616:61616 marcelocaj/artemis-hawtio-docker
+```
+
+Open your browser in:
+
+```console
+$ http://localhost:8161/hawtio
 ```
 
 After a few seconds, you can run the following command `docker logs some-thing` (where some-thing is the name docker assigned to your instance), you'll see in the output a block similar to:
