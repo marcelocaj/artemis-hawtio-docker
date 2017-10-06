@@ -3,6 +3,10 @@
 -	[`2.1-1.5-1-alpine`, `latest`](https://raw.githubusercontent.com/marcelocaj/artemis-hawtio-docker/2.1-1.5-1-alpine/Dockerfile)
 -	[`2.3-1.5-1-alpine`, `latest`](https://raw.githubusercontent.com/marcelocaj/artemis-hawtio-docker/2.3-1.5-1-alpine/Dockerfile)
 
+## Warning 2.3 imcompatibility
+
+Configuration files from Artemis 2.3 are not compatible with 2.1 files since 2.3 already includes hawtio. This requires manual migration.
+
 # What is this container?
 
 Taking the [vromero/activemq-artemis](https://github.com/vromero/activemq-artemis-docker) image as a base and since ActiveMQ Artemis does not offer any graphical administration console, this container includes the neccesary configuration to run ActiveMQ Artemis + HawtIO + HawtIO Artemis Plugin.
