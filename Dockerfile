@@ -6,7 +6,7 @@ RUN addgroup -S artemis && adduser -S -G artemis artemis
 
 RUN apk add --no-cache libaio xmlstarlet jq su-exec
 
-ENV HAWTIO_SHA1 59a5ec0d9c938bd706be42c879574b8105250d72
+#ENV HAWTIO_SHA1 59a5ec0d9c938bd706be42c879574b8105250d72
 
 # Download artemis and hawtio 
 ENV ACTIVEMQ_ARTEMIS_VERSION 2.3.0
@@ -22,18 +22,18 @@ RUN set -x && \
   tar xfz apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz && \
   ln -s apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION} apache-artemis && \
   rm -f apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz KEYS apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz.asc && \
-  cd /opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}/web/ && \
-  wget -q -O hawtio.war https://oss.sonatype.org/content/repositories/public/io/hawt/hawtio-default-offline/${HAWTIO_VERSION}/hawtio-default-offline-${HAWTIO_VERSION}.war && \
-  echo "${HAWTIO_SHA1} *hawtio.war" | sha1sum -c - && \
+#  cd /opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}/web/ && \
+#  wget -q -O hawtio.war https://oss.sonatype.org/content/repositories/public/io/hawt/hawtio-default-offline/${HAWTIO_VERSION}/hawtio-default-offline-${HAWTIO_VERSION}.war && \
+#  echo "${HAWTIO_SHA1} *hawtio.war" | sha1sum -c - && \
   apk del .deps
 
 # Use the local hawtio artemis plugin
-ENV HAWTIO_ARTEMIS_VERSION 1.0.1.CR1
-COPY artemis-plugin-${HAWTIO_ARTEMIS_VERSION}.war /opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}/web/artemis-plugin.war
-COPY dispatch-hawtio-console-${HAWTIO_ARTEMIS_VERSION}.war /opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}/web/dispatch-hawtio-console.war
+#ENV HAWTIO_ARTEMIS_VERSION 1.0.1.CR1
+#COPY artemis-plugin-${HAWTIO_ARTEMIS_VERSION}.war /opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}/web/artemis-plugin.war
+#COPY dispatch-hawtio-console-${HAWTIO_ARTEMIS_VERSION}.war /opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}/web/dispatch-hawtio-console.war
 
-ENV HAWTIO_OPTS -Dhawtio.realm=activemq -Dhawtio.role=amq \
-                -Dhawtio.rolePrincipalClasses=org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal -Djon.id=amq
+#ENV HAWTIO_OPTS -Dhawtio.realm=activemq -Dhawtio.role=amq \
+#                -Dhawtio.rolePrincipalClasses=org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal -Djon.id=amq
 
 # Create broker instance
 ENV ARTEMIS_INSTANCE_DIR /var/lib/artemis
