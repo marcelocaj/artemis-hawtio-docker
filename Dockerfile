@@ -9,8 +9,8 @@ RUN apk add --no-cache libaio xmlstarlet jq su-exec
 ENV HAWTIO_SHA1 c0c92cad5bdcc9b768207c8b8a3cde62dbc7ab8c
 
 # Download artemis and hawtio 
-ENV ACTIVEMQ_ARTEMIS_VERSION 2.1.0
-ENV HAWTIO_VERSION 1.5.2
+ENV ACTIVEMQ_ARTEMIS_VERSION 2.3.0
+ENV HAWTIO_VERSION 1.5.4
 RUN set -x && \
   apk add --no-cache --virtual .deps wget gnupg && \
   mkdir /opt && cd /opt && \
