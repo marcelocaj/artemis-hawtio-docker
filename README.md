@@ -3,9 +3,9 @@
 -	[`2.1-1.5-1-alpine`, `latest`](https://raw.githubusercontent.com/marcelocaj/artemis-hawtio-docker/2.1-1.5-1-alpine/Dockerfile)
 -	[`2.3-1.5-1-alpine`, `latest`](https://raw.githubusercontent.com/marcelocaj/artemis-hawtio-docker/2.3-1.5-1-alpine/Dockerfile)
 
-## Warning 2.3 imcompatibility
+## Warning: 2.3 incompatibility
 
-Configuration files from Artemis 2.3 are not compatible with 2.1 files since 2.3 already includes hawtio. This requires manual migration.
+Configuration files from Artemis 2.3 are not compatible with 2.1 files since 2.3 already includes hawtio. This upgrade requires manual migration.
 
 # What is this container?
 
